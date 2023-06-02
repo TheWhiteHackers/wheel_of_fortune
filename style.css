@@ -1,0 +1,16 @@
+#board{
+    border: 0px solid rebeccapurple;
+    width: 680px;
+}
+.box{
+    width: 40px;
+    height: 60px;
+    border: 2px solid black;
+    float: left;
+    margin: 2px;
+    background-color: rgb(161, 234, 197);
+}
+.noborder{
+    border: 2px solid white;
+    background-color: white;
+}
