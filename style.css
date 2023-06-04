@@ -1,6 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
+body{
+    font-family: 'Geologica', sans-serif;
+}
+h1{
+    font-size: 40px;
+}
 #board{
     border: 0px solid rebeccapurple;
     width: 680px;
+    height: 280px;
+}
+#boardcon{
+    border: 0px solid rebeccapurple;;
+    float: left;
+    width: 64%;
+    min-width: 690px;
+}
+#wheel{
+    border: 0px solid red;  
+    height: 280px;
+    width: 34%;
+    float: right; 
+}
+#letterscon{
+    border: 0px solid navy;
+    float: left;
+    height: 100px;
+    width: 99%;
+}
+#letters{
+    border: 0px solid navy;
+    height: 100px;
+    width: 1060px;
+}
+#letters div {
+    text-align: center;
+    font-weight: 600;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    float: left;
+    margin: 4px;
+    margin-top: 65px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+#letters div:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
 }
 .box{
     width: 40px;

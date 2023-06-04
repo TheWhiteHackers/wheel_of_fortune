@@ -2,6 +2,7 @@ window.onload=start();
 function start(){
 
     createboard();
+    createabc();
 
 }
 
@@ -19,14 +20,17 @@ function createboard(){
             } else {
                 boxlist += "<div class='box'></div>"
             }
-      
-        counter++
-        
+            counter++
         }
     }
     board.innerHTML=boxlist;
-
-
-
 }
 
+function createabc(){
+    let abc = "ABCDEFGIJKLMNOPQRSTUVWXYZ"
+    let str = "<center>"
+    for (let i = 0; i < abc.length; i++) {
+        str += "<div>"+abc[i]+"</div>"
+    }
+    document.getElementById("letters").innerHTML=str+"</center>";;
+}
