@@ -35,7 +35,9 @@ function createabc(){
     document.getElementById("letters").innerHTML=str+"</center>";;
 }
 
-
+// ----------------------
+// THE 'WHEEL'
+// ----------------------
 var wordlist = [
     '$950',
     'ONE MILLION $',

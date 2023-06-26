@@ -62,9 +62,15 @@ h1{
     border: 2px solid white;
     background-color: white;
 }
+#ws {
+    height: 30px;
+    width: 130px;
+    border: none;
+    background-color: rgb(149, 222, 185);
+    font-family: 'Geologica', sans-serif;
+}
 #ws:hover {
-    background-color: black;
-    color: white;
+    font-weight: 700;
 }
 /* ----- */
 /* THE 'WHEEL' */
@@ -73,11 +79,10 @@ h1{
     border: 1px solid black;
     margin: 0px auto;
     width: 400px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
-  
 .slottt-machine-recipe__mask {
-     
+    border: 1px solid cyan;
     width: 100%;
     height: 150px;
     overflow: hidden; 
@@ -85,7 +90,6 @@ h1{
     display: inline-block;
     margin-bottom: -40px;
 }
-  
 .slottt-machine-recipe__items_container {
     position: absolute;
 }
@@ -97,12 +101,10 @@ h1{
     padding: 0px;
     background-size: contain;
 }
-  
-  /* Typography */
-  
+/* Typography */
 .recipe_if, .recipe_then {
     font-weight: bold;
-    font-size: 70px;
+    font-size: 50px;
 }
   
 .tagline {
