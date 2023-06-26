@@ -118,6 +118,7 @@ var wordlist = [
     buildSlotContents($wordbox, wordlist);  
     buildSlotContents($wordbox, wordlist);  
     
-    setInterval(animate, 2000);
+    //setInterval(animate, 2000);
+    animate();
 };
 

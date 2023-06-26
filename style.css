@@ -13,14 +13,15 @@ h1{
 #boardcon{
     border: 0px solid rebeccapurple;;
     float: left;
-    width: 64%;
+    width: 66%;
     min-width: 690px;
 }
 #wheel{
-    border: 1px solid red;  
+    border: 0px solid red;  
     height: 280px;
-    width: 34%;
+    width: 32%;
     float: right; 
+
 }
 #letterscon{
     border: 0px solid navy;
@@ -63,10 +64,12 @@ h1{
     background-color: white;
 }
 #ws {
-    height: 30px;
-    width: 130px;
+    height: 40px;
+    width: 140px;
+    font-size: 15px;
     border: none;
-    background-color: rgb(149, 222, 185);
+    /* background-color: rgb(255, 247, 220); */
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
     font-family: 'Geologica', sans-serif;
 }
 #ws:hover {
@@ -76,24 +79,33 @@ h1{
 /* THE 'WHEEL' */
 /* ----- */
 .slottt-machine-recipe {
-    border: 1px solid black;
+    border: 0px solid rgb(3, 37, 26);
+    /* box-shadow: inset 0px 0px 3px 1px #043322;
+    border-radius: 3px; */
     margin: 0px auto;
-    width: 400px;
-    margin-top: 30px;
+    text-align: center;
+    line-height: 45px;
+    width: 340px;
+    height: 60px;
+    margin-top: 20px;
+    /* margin-left: -1.5px; */
+    background-color:rgb(170, 241, 206);
 }
 .slottt-machine-recipe__mask {
-    border: 1px solid cyan;
+    border: 0px solid cyan;
+    padding-left: 10px;
     width: 100%;
-    height: 150px;
+    height: 60px;
     overflow: hidden; 
     position: relative;
     display: inline-block;
     margin-bottom: -40px;
+    /* margin-left: -1.5px; */
+
 }
 .slottt-machine-recipe__items_container {
     position: absolute;
 }
-  
 .slottt-machine-recipe__item {
     min-height: 150px;
     max-height: 150px;
@@ -104,14 +116,12 @@ h1{
 /* Typography */
 .recipe_if, .recipe_then {
     font-weight: bold;
-    font-size: 50px;
+    font-size: 40px;
 }
-  
 .tagline {
     font-weight: normal;
     font-size: 24px;
 }
-  
 a {
    font-weight: bold;
    text-decoration: none;
