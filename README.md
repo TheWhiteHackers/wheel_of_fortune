@@ -1,6 +1,6 @@
-# wheel_of_fortune
+# Wheel of Fortune
 
-## This is a modern-looking replica of the Wheel of Fortune
+## This is a modern-looking replica of the tv show "Wheel of Fortune"
 
 ## Have fun playing!
 
