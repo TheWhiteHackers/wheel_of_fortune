@@ -41,7 +41,7 @@ function createabc(){
 var wordlist = [
     '$950',
     'ONE MILLION $',
-    'LOSE A TURN',
+    'NOTHING!',
     '$800',
     '$500',
     '$650',
@@ -52,7 +52,7 @@ var wordlist = [
     '$500',
     '$900',
     '$700',
-    'ONE MILLION $',
+    'NOTHING!',
     '$650',
     '$500',
     '$700',
