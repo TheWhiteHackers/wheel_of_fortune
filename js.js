@@ -116,6 +116,7 @@ var wordlist = [
     
     //setInterval(animate, 2000);
     animate();
+    document.getElementById("ws").disabled=true;
 };
 
 function startgame(){
@@ -124,5 +125,5 @@ function startgame(){
 
 
 
-  
+
 };
