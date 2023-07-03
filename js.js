@@ -2,7 +2,6 @@ window.onload=start();
 function start(){
   createboard();
   createabc();
-  startgame();
 }
 
 function createboard(){
@@ -117,12 +116,15 @@ var wordlist = [
     //setInterval(animate, 2000);
     animate();
     document.getElementById("ws").disabled=true;
+    document.getElementById("letterscon").style.display='block';
+
 };
 
 function startgame(){
 
-
-
+document.getElementById("shadow").style.display='none';
+document.getElementById("popup").style.display='none';
+document.getElementById("letterscon").style.display='none';
 
 
 

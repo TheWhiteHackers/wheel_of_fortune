@@ -135,7 +135,8 @@ a {
    color: #33CCFF;
 }
 #popup{
-    border: 7px solid rgb(112, 254, 183);
+    border: 15px solid rgb(112, 254, 183);
+    border-radius: 2px;
     background-color: rgb(255, 255, 255);
     position: absolute;
     width: 500px;
@@ -160,11 +161,11 @@ a {
 }
 #begingame{
     border: none;
-    background-image: linear-gradient(to right, rgb(112, 254, 183) 0%, rgb(0, 255, 123) 51%, rgb(112, 254, 183) 100%);
+    background-image: linear-gradient(to right, rgb(230, 255, 45) 0%, rgb(255, 230, 0) 51%, rgb(230, 255, 45) 100%);
     font-family: 'Geologica', sans-serif;
-    height: 40px;
-    width: 140px;
-    font-size: 15px;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
     font-weight: 600;
-    
+    margin-top: 10px;
 }
