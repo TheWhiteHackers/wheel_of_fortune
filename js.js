@@ -1,9 +1,8 @@
 window.onload=start();
 function start(){
-
-    createboard();
-    createabc();
-
+  createboard();
+  createabc();
+  startgame();
 }
 
 function createboard(){
@@ -40,7 +39,7 @@ function createabc(){
 // ----------------------
 var wordlist = [
     '$950',
-    'ONE MILLION $',
+    '$0',
     'NOTHING!',
     '$800',
     '$500',
@@ -100,8 +99,6 @@ var wordlist = [
     return (randIndex > 10) ? randIndex : randomSlotttIndex(max);
   }
   
-    
-    
   function animate() {
     var wordIndex = randomSlotttIndex(wordlist.length);
     $wordbox.animate({top: -wordIndex*150}, 500, 'swing', function () {
@@ -109,7 +106,6 @@ var wordlist = [
     });
   }
   
-
  function wheel(){
     console.log("hi!");
     $wordbox = $('#wordbox .slottt-machine-recipe__items_container');
@@ -122,3 +118,11 @@ var wordlist = [
     animate();
 };
 
+function startgame(){
+
+
+
+
+
+  
+};
