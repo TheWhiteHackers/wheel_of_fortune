@@ -1,14 +1,16 @@
-window.onload=start();
-function start(){
-  createboard();
-  createabc();
-}
 let sen = [
   ["SNOW WHITE", 9],
   ["TOMATO TAMATO", 12],
   ["WATERMELON SUGAR", 15],
   ["THE GOOSE WITH THE GOLDEN EGG", 24]
-]
+];
+window.onload=start();
+function start(){
+  createboard();
+  createabc();
+  preparesen();
+}
+
 function createboard(){
     let row = 4;
     let colum = 14;
@@ -136,4 +138,21 @@ document.getElementById("letterscon").style.display='none';
 function sengen(){
   let randonum = Math.floor(Math.random()*sen.length);
   console.log(sen[randonum]);
+
+
+}
+function preparesen(){
+  let sentence = sen[3][0];
+  const words = sentence.split(" ");
+  let pos = 2;
+  let line = 1;
+  for (let i = 0; i < words.length; i++) {
+  
+    
+  }
+
+
+
+
+  console.log(words);
 }

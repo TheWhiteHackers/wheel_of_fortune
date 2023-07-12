@@ -65,6 +65,7 @@ h1{
     float: left;
     margin: 2px;
     background-color: rgb(161, 234, 197);
+    
 }
 .noborder{
     border: 2px solid white;
@@ -168,4 +169,11 @@ a {
     font-size: 20px;
     font-weight: 600;
     margin-top: 10px;
+}
+.gamebox{
+    color: black;
+    background-color:rgb(255, 245, 233);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
 }
