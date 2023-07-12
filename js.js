@@ -3,7 +3,12 @@ function start(){
   createboard();
   createabc();
 }
-
+let sen = [
+  ["SNOW WHITE", 9],
+  ["TOMATO TAMATO", 12],
+  ["WATERMELON SUGAR", 15],
+  ["THE GOOSE WITH THE GOLDEN EGG", 24]
+]
 function createboard(){
     let row = 4;
     let colum = 14;
@@ -117,15 +122,18 @@ var wordlist = [
     animate();
     document.getElementById("ws").disabled=true;
     document.getElementById("letterscon").style.display='block';
+    setTimeout(() => {  sengen(); }, 900);
+    
 
 };
 
 function startgame(){
-
 document.getElementById("shadow").style.display='none';
 document.getElementById("popup").style.display='none';
 document.getElementById("letterscon").style.display='none';
-
-
-
 };
+
+function sengen(){
+  let randonum = Math.floor(Math.random()*sen.length);
+  console.log(sen[randonum]);
+}
