@@ -4,11 +4,14 @@ let sen = [
   ["WATERMELON SUGAR", 15],
   ["THE GOOSE WITH THE GOLDEN EGG", 24]
 ];
+let wordpos = [];
+
 window.onload=start();
 function start(){
   createboard();
   createabc();
   preparesen();
+  drawsen();
 }
 
 function createboard(){
@@ -130,29 +133,43 @@ var wordlist = [
 };
 
 function startgame(){
-document.getElementById("shadow").style.display='none';
-document.getElementById("popup").style.display='none';
-document.getElementById("letterscon").style.display='none';
+  document.getElementById("shadow").style.display='none';
+  document.getElementById("popup").style.display='none';
+  document.getElementById("letterscon").style.display='none';
 };
 
 function sengen(){
   let randonum = Math.floor(Math.random()*sen.length);
-  console.log(sen[randonum]);
+  //console.log(sen[randonum]);
 
 
 }
+
 function preparesen(){
   let sentence = sen[3][0];
   const words = sentence.split(" ");
   let pos = 2;
   let line = 1;
   for (let i = 0; i < words.length; i++) {
-  
-    
+    if (pos + words[i].length < 12){
+      wordpos.push(pos+(line-1)*14);
+      pos += words[i].length+1;
+    } else {
+      line++;
+      pos = 2;
+      i--;
+    }
   }
-
-
-
-
   console.log(words);
+  console.log(wordpos);
 }
+
+function drawsen(){
+  
+}
+
+
+
+
+
+
