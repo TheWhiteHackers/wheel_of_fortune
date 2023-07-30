@@ -1,17 +1,16 @@
 let sen = [
-  ["SNOW WHITE", 9],
-  ["TOMATO TAMATO", 12],
-  ["WATERMELON SUGAR", 15],
-  ["THE GOOSE WITH THE GOLDEN EGG", 24]
+  ["SNOW WHITE"],
+  ["TOMATO TAMATO"],
+  ["WATERMELON SUGAR"],
+  ["THE GOOSE WITH THE GOLDEN EGG"]
 ];
 let wordpos = [];
+let words;
 
 window.onload=start();
 function start(){
   createboard();
   createabc();
-  preparesen();
-  drawsen();
 }
 
 function createboard(){
@@ -24,9 +23,9 @@ function createboard(){
     for (let i = 0; i < row; i++) {
         for (let j = 0; j < colum; j++) {
             if(counter == 1 || counter == 14 || counter == 43 || counter == 56){
-                boxlist += "<div class='box noborder'></div>"
+                boxlist += "<div class='box noborder' id='cell"+counter+"'></div>"
             } else {
-                boxlist += "<div class='box'></div>"
+                boxlist += "<div class='box' id='cell"+counter+"'></div>"
             }
             counter++
         }
@@ -126,9 +125,7 @@ var wordlist = [
     //setInterval(animate, 2000);
     animate();
     document.getElementById("ws").disabled=true;
-    document.getElementById("letterscon").style.display='block';
-    setTimeout(() => {  sengen(); }, 900);
-    
+    document.getElementById("letterscon").style.display='block';    
 
 };
 
@@ -136,27 +133,24 @@ function startgame(){
   document.getElementById("shadow").style.display='none';
   document.getElementById("popup").style.display='none';
   document.getElementById("letterscon").style.display='none';
+  preparesen();
+  drawsen();
 };
 
-function sengen(){
-  let randonum = Math.floor(Math.random()*sen.length);
-  //console.log(sen[randonum]);
-
-
-}
-
 function preparesen(){
-  let sentence = sen[3][0];
-  const words = sentence.split(" ");
-  let pos = 2;
+  let randonum = Math.floor(Math.random()*sen.length);
+  let sentence = sen[randonum][0];
+  words = sentence.split(" ");
+  let pos = 3;
   let line = 1;
   for (let i = 0; i < words.length; i++) {
-    if (pos + words[i].length < 12){
+    if (pos-1 + words[i].length < 13){
       wordpos.push(pos+(line-1)*14);
       pos += words[i].length+1;
+      console.log(pos);
     } else {
       line++;
-      pos = 2;
+      pos = 3;
       i--;
     }
   }
@@ -165,7 +159,11 @@ function preparesen(){
 }
 
 function drawsen(){
-  
+  for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < words[i].length; j++) {
+      document.getElementById("cell"+(wordpos[i]+j)).classList.add("gamebox");
+    }
+  }
 }
 
 
