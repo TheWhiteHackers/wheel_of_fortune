@@ -149,6 +149,20 @@ a {
     z-index: 10001;
     text-align: center;
 }
+#popup2{
+    border: 15px solid rgb(112, 254, 183);
+    border-radius: 2px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    left: 50%;
+    margin-left: -250px;
+    top: 50%;
+    margin-top: -175px;
+    z-index: 10001;
+    text-align: center;
+}
 #shadow{
     position: absolute;
     top: 0px;

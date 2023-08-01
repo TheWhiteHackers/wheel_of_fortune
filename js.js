@@ -11,6 +11,7 @@ window.onload=start();
 function start(){
   createboard();
   createabc();
+  document.getElementById("popup2").style.display="none";
 }
 
 function createboard(){
@@ -166,8 +167,14 @@ function drawsen(){
   }
 }
 function explaincore(){
-  
+  document.getElementById("popup2").style.display="block";
+  document.getElementById("shadow").style.display="block"
 }
+function closebtn(){
+  document.getElementById("popup2").style.display="none";
+  document.getElementById("shadow").style.display="none"
+}
+
 
 
 
