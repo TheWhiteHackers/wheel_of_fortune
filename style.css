@@ -14,11 +14,11 @@ h1{
 }
 #board{
     border: 0px solid rebeccapurple;
-    width: 680px;
-    height: 280px;
+    width: 700px;
+    height: 290px;
 }
 #boardcon{
-    border: 0px solid rebeccapurple;;
+    border: 0px solid cornflowerblue;;
     float: left;
     width: 66%;
     min-width: 690px;
@@ -28,7 +28,6 @@ h1{
     height: 280px;
     width: 32%;
     float: right; 
-
 }
 #letterscon{
     border: 0px solid navy;
@@ -61,14 +60,13 @@ h1{
 .box{
     width: 40px;
     height: 60px;
-    border: 2px solid black;
+    border: 2.8px solid black;
     float: left;
     margin: 2px;
     background-color: rgb(161, 234, 197);
-    
 }
 .noborder{
-    border: 2px solid white;
+    border: 2.8px solid white;
     background-color: white;
 }
 #ws {
@@ -109,7 +107,6 @@ h1{
     display: inline-block;
     margin-bottom: -28px;
     /* margin-left: -1.5px; */
-
 }
 .slottt-machine-recipe__items_container {
     position: absolute;
@@ -135,6 +132,9 @@ a {
    text-decoration: none;
    color: #33CCFF;
 }
+/* ---- */
+/* WHEEL END */
+/* ---- */
 #popup{
     border: 15px solid rgb(112, 254, 183);
     border-radius: 2px;
@@ -150,7 +150,7 @@ a {
     text-align: center;
 }
 #popup2{
-    border: 15px solid rgb(112, 254, 183);
+    border: 15px solid rgb(199, 139, 255);
     border-radius: 2px;
     background-color: rgb(255, 255, 255);
     position: absolute;
@@ -162,6 +162,16 @@ a {
     margin-top: -175px;
     z-index: 10001;
     text-align: center;
+}
+#gotitbtn{
+    height: 40px;
+    width: 140px;
+    font-size: 15px;
+    border: none;
+    color: white;
+    background-image: linear-gradient(to right, #830db1 0%, #ae008b 51%, #830db1 100%);
+    font-family: 'Geologica', sans-serif;
+    margin-top: 10px;
 }
 #shadow{
     position: absolute;
