@@ -6,6 +6,7 @@ let sen = [
 ];
 let wordpos = [];
 let words;
+let sentence;
 
 window.onload=start();
 function start(){
@@ -38,9 +39,9 @@ function createabc(){
     let abc = "ABCDEFGIJKLMNOPQRSTUVWXYZ"
     let str = "<center>"
     for (let i = 0; i < abc.length; i++) {
-        str += "<div>"+abc[i]+"</div>"
+        str += '<input type="button" onclick="checkletter(\''+abc[i]+'\', this)" value="'+abc[i]+'">';
     }
-    document.getElementById("letters").innerHTML=str+"</center>";;
+    document.getElementById("letters").innerHTML=str+"</center>";
 }
 
 // ----------------------
@@ -140,7 +141,7 @@ function startgame(){
 
 function preparesen(){
   let randonum = Math.floor(Math.random()*sen.length);
-  let sentence = sen[randonum][0];
+  sentence = sen[randonum][0];
   words = sentence.split(" ");
   let pos = 3;
   let line = 1;
@@ -174,7 +175,22 @@ function closebtn(){
   document.getElementById("popup2").style.display="none";
   document.getElementById("shadow").style.display="none"
 }
+function checkletter(letter, div){
 
+let count =0;
+ for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i]==letter){
+      count++
+    }
+ }
+
+div.disabled=true;
+console.log(count);
+
+document.getElementById("ws").disabled=false;
+document.getElementById("letterscon").style.display='none';    
+
+}
 
 
 
