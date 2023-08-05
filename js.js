@@ -7,12 +7,15 @@ let sen = [
 let wordpos = [];
 let words;
 let sentence;
+let wordIndex;
 
 window.onload=start();
 function start(){
   createboard();
   createabc();
   document.getElementById("popup2").style.display="none";
+  document.getElementById("popup3").style.display="none";
+
 }
 
 function createboard(){
@@ -47,7 +50,33 @@ function createabc(){
 // ----------------------
 // THE 'WHEEL'
 // ----------------------
-var wordlist = [
+let wordlistvalues = [
+    ['$950', 950],
+    ['$0', 0],
+    ['NOTHING!', 0],
+    ['$800', 800],
+    ['$500', 500],
+    ['$650', 650],
+    ['ONE MILLION $', 1000000],
+    ['$900', 900],
+    ['BANKRUPT', -1],
+    ['$2,500', 2500],
+    ['$500', 500],
+    ['$900', 900],
+    ['$700', 700],
+    ['NOTHING!', 0],
+    ['$650', 650],
+    ['$500', 500],
+    ['$700', 700],
+    ['$500', 500],
+    ['$600', 600],
+    ['$550', 550],
+    ['ONE MILLION $', 1000000],
+    ['$600', 600],
+    ['BANKRUPT', -1],
+    ['$650', 650],
+];
+let wordlist = [
     '$950',
     '$0',
     'NOTHING!',
@@ -72,11 +101,10 @@ var wordlist = [
     '$600',
     'BANKRUPT',
     '$650',
-  ]
-  
+];
 function buildSlotItem (text) {
-      return $('<div>').addClass('slottt-machine-recipe__item')
-                       .text(text)
+    return $('<div>').addClass('slottt-machine-recipe__item')
+                    .text(text)
 }
   
 function buildSlotContents ($container, wordlist) {
@@ -110,7 +138,9 @@ function randomSlotttIndex(max) {
 }
   
 function animate() {
-    var wordIndex = randomSlotttIndex(wordlist.length);
+    wordIndex = randomSlotttIndex(wordlist.length);
+    console.log(wordIndex);
+
     $wordbox.animate({top: -wordIndex*150}, 500, 'swing', function () {
       rotateContents($wordbox, wordIndex);
     });
@@ -120,14 +150,16 @@ function wheel(){
     console.log("hi!");
     $wordbox = $('#wordbox .slottt-machine-recipe__items_container');
     buildSlotContents($wordbox, wordlist);  
-    buildSlotContents($wordbox, wordlist);  
-    buildSlotContents($wordbox, wordlist);  
-    buildSlotContents($wordbox, wordlist);  
+    // buildSlotContents($wordbox, wordlist);  
+    // buildSlotContents($wordbox, wordlist);  
+    // buildSlotContents($wordbox, wordlist);  
     
     //setInterval(animate, 2000);
     animate();
     document.getElementById("ws").disabled=true;
-    document.getElementById("letterscon").style.display='block';    
+    document.getElementById("letterscon").style.display='block';  
+    document.getElementById("popup3").style.display="none";
+  
 
 };
 
@@ -169,11 +201,14 @@ function drawsen(){
 }
 function explaincore(){
   document.getElementById("popup2").style.display="block";
-  document.getElementById("shadow").style.display="block"
+  document.getElementById("shadow").style.display="block";
 }
 function closebtn(){
   document.getElementById("popup2").style.display="none";
-  document.getElementById("shadow").style.display="none"
+  document.getElementById("shadow").style.display="none";
+}
+function closebtn(){
+  document.getElementById("popup3").style.display="none";
 }
 function checkletter(letter, div){
 
@@ -187,8 +222,12 @@ let count =0;
 div.disabled=true;
 console.log(count);
 
+let text = '"'+letter+'" was found '+count+' times <br> '+wordlistvalues[wordIndex][0]+' x '+count+' = $'+(count*wordlistvalues[wordIndex][1]);
+
+document.getElementById("note").innerHTML=text;
+document.getElementById("popup3").style.display="block";
 document.getElementById("ws").disabled=false;
-document.getElementById("letterscon").style.display='none';    
+document.getElementById("letterscon").style.display='none';
 
 }
 
