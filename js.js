@@ -159,8 +159,6 @@ function wheel(){
     document.getElementById("ws").disabled=true;
     document.getElementById("letterscon").style.display='block';  
     document.getElementById("popup3").style.display="none";
-  
-
 };
 
 function startgame(){
