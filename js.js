@@ -157,10 +157,27 @@ function wheel(){
     
     //setInterval(animate, 2000);
     animate();
+
+    setTimeout(()=> checkbankrupt(), 1000);
+};
+function checkbankrupt(){
+  let selected = document.getElementsByClassName("slottt-machine-recipe__items_container")[0].children[0].innerHTML;
+
+  console.log(selected);
+  if (selected == 'BANKRUPT'){
+    
+    document.getElementById("ws").disabled=false;
+    document.getElementById("letterscon").style.display='none';  
+
+    checkletter("A", null)
+
+
+  } else {
     document.getElementById("ws").disabled=true;
     document.getElementById("letterscon").style.display='block';  
     document.getElementById("popup3").style.display="none";
-};
+  }
+}
 
 function startgame(){
   document.getElementById("shadow").style.display='none';
@@ -211,30 +228,35 @@ function closebtn(){
 }
 function checkletter(letter, div){
 
-let count =0;
- for (let i = 0; i < sentence.length; i++) {
-    if (sentence[i]==letter){
-      count++
-    }
- }
-
-div.disabled=true;
-console.log(count);
+let text;
 
 let selected = document.getElementsByClassName("slottt-machine-recipe__items_container")[0].children[0].innerHTML;
 
-let wordval = 0;
-
-for (let i = 0; i < wordlistvalues.length; i++) {
-  if (wordlistvalues[i][0] == selected){
-    wordval = wordlistvalues[i][1];
-  }
+if (selected == 'BANKRUPT'){
+  earnings=0;
+  text="OH-NO you lost all your money!"
   
+} else {
+
+  let count =0;
+  for (let i = 0; i < sentence.length; i++) {
+     if (sentence[i]==letter){
+       count++
+     }
+  }
+ 
+  div.disabled=true;
+
+    let wordval = 0;
+      for (let i = 0; i < wordlistvalues.length; i++) {
+        if (wordlistvalues[i][0] == selected){
+          wordval = wordlistvalues[i][1];
+        }
+      }
+    text = '"'+letter+'" was found '+count+' times <br> '+selected+' x '+count+' = $'+(count*wordval);
+    earnings += count*wordval;
 }
 
-
-let text = '"'+letter+'" was found '+count+' times <br> '+selected+' x '+count+' = $'+(count*wordval);
-earnings += count*wordval;
 
 document.getElementById("bal").innerHTML= earnings;
 document.getElementById("note").innerHTML=text;
