@@ -8,6 +8,7 @@ let wordpos = [];
 let words;
 let sentence;
 let wordIndex;
+let earnings = 0;
 
 window.onload=start();
 function start(){
@@ -220,8 +221,22 @@ let count =0;
 div.disabled=true;
 console.log(count);
 
-let text = '"'+letter+'" was found '+count+' times <br> '+wordlistvalues[wordIndex][0]+' x '+count+' = $'+(count*wordlistvalues[wordIndex][1]);
+let selected = document.getElementsByClassName("slottt-machine-recipe__items_container")[0].children[0].innerHTML;
 
+let wordval = 0;
+
+for (let i = 0; i < wordlistvalues.length; i++) {
+  if (wordlistvalues[i][0] == selected){
+    wordval = wordlistvalues[i][1];
+  }
+  
+}
+
+
+let text = '"'+letter+'" was found '+count+' times <br> '+selected+' x '+count+' = $'+(count*wordval);
+earnings += count*wordval;
+
+document.getElementById("bal").innerHTML= earnings;
 document.getElementById("note").innerHTML=text;
 document.getElementById("popup3").style.display="block";
 document.getElementById("ws").disabled=false;
