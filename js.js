@@ -16,6 +16,8 @@ function start(){
   createabc();
   document.getElementById("popup2").style.display="none";
   document.getElementById("popup3").style.display="none";
+  document.getElementById("finishedgame").style.display="block";
+
 
 }
 
@@ -40,7 +42,7 @@ function createboard(){
 }
 
 function createabc(){
-    let abc = "ABCDEFGIJKLMNOPQRSTUVWXYZ"
+    let abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     let str = "<center>"
     for (let i = 0; i < abc.length; i++) {
         str += '<input type="button" onclick="checkletter(\''+abc[i]+'\', this)" value="'+abc[i]+'">';
@@ -222,12 +224,12 @@ function explaincore(){
 function closebtn(){
   document.getElementById("popup2").style.display="none";
   document.getElementById("shadow").style.display="none";
-}
-function closebtn(){
   document.getElementById("popup3").style.display="none";
+
 }
 function checkletter(letter, div){
 
+let gamefinshed = true;
 let text;
 
 let selected = document.getElementsByClassName("slottt-machine-recipe__items_container")[0].children[0].innerHTML;
@@ -255,6 +257,28 @@ if (selected == 'BANKRUPT'){
       }
     text = '"'+letter+'" was found '+count+' times <br> '+selected+' x '+count+' = $'+(count*wordval);
     earnings += count*wordval;
+
+  // writing letters
+  for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < words[i].length; j++) {
+      if (words[i][j] === letter){
+        document.getElementById("cell"+(wordpos[i]+j)).innerHTML=letter;
+      }
+    }
+  }
+// check if game ended
+
+let letdivs = document.getElementsByClassName("gamebox");
+  for (let i = 0; i < letdivs.length; i++) {
+    if (letdivs[i].innerHTML==""){
+      gamefinshed=false;
+    }
+    
+  }
+
+
+
+
 }
 
 
@@ -264,6 +288,10 @@ document.getElementById("popup3").style.display="block";
 document.getElementById("ws").disabled=false;
 document.getElementById("letterscon").style.display='none';
 
+
+if (gamefinshed){
+  console.log("game finshed");
+}
 }
 
 

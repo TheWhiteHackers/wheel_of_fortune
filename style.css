@@ -38,7 +38,7 @@ h1{
 #letters{
     border: 0px solid navy;
     height: 100px;
-    width: 1090px;
+    width: 1130px;
 }
 #letters input {
     font-size: 17px;
@@ -220,6 +220,31 @@ a {
     top: 10px;
     z-index: 10001;
     text-align: left;
+}
+#finishedgame{
+    border: 15px solid rgb(238, 186, 14);
+    border-radius: 2px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    left: 50%;
+    margin-left: -250px;
+    top: 50%;
+    margin-top: -175px;
+    z-index: 10001;
+    text-align: center;
+}
+#playagain{
+    border: none;
+    background-image: linear-gradient(to right, rgb(255, 188, 45) 0%, rgb(255, 230, 0) 51%, rgb(255, 188, 45) 100%);
+    font-family: 'Geologica', sans-serif;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
 }
 .words{
     float: left;
