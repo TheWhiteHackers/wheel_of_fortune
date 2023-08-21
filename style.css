@@ -252,3 +252,18 @@ a {
     margin-left: 20px;
     width: 200px;
 }
+#guesses{
+    border: 0px solid goldenrod;
+    top: 3px;
+    left: 3px;
+    height: 40px;
+    width: 17%;
+    margin-right: none;
+}
+#guesses h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#frontguess{
+    color: rgb(237, 192, 79);
+}

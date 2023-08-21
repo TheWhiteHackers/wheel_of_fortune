@@ -16,8 +16,7 @@ function start(){
   createabc();
   document.getElementById("popup2").style.display="none";
   document.getElementById("popup3").style.display="none";
-  document.getElementById("finishedgame").style.display="block";
-
+  document.getElementById("finishedgame").style.display="none";
 
 }
 
@@ -231,15 +230,24 @@ function checkletter(letter, div){
 
 let gamefinshed = true;
 let text;
+let guesscount = 0;
 
 let selected = document.getElementsByClassName("slottt-machine-recipe__items_container")[0].children[0].innerHTML;
 
 if (selected == 'BANKRUPT'){
   earnings=0;
+  guesscount = guesscount +1;
   text="OH-NO you lost all your money!"
-  
+  let letdivs = document.getElementsByClassName("gamebox");
+  for (let i = 0; i < letdivs.length; i++) {
+    if (letdivs[i].innerHTML==""){
+      gamefinshed=false;
+    }
+  }
+
 } else {
 
+  guesscount = guesscount +1;
   let count =0;
   for (let i = 0; i < sentence.length; i++) {
      if (sentence[i]==letter){
@@ -268,19 +276,14 @@ if (selected == 'BANKRUPT'){
   }
 // check if game ended
 
-let letdivs = document.getElementsByClassName("gamebox");
+letdivs = document.getElementsByClassName("gamebox");
   for (let i = 0; i < letdivs.length; i++) {
     if (letdivs[i].innerHTML==""){
       gamefinshed=false;
     }
-    
   }
 
-
-
-
 }
-
 
 document.getElementById("bal").innerHTML= earnings;
 document.getElementById("note").innerHTML=text;
@@ -291,7 +294,20 @@ document.getElementById("letterscon").style.display='none';
 
 if (gamefinshed){
   console.log("game finshed");
+  document.getElementById("shadow").style.display="block";
+  document.getElementById("popup3").style.display="none";
+  document.getElementById("finishedgame").style.display="block";
+  document.getElementById("senwas").innerHTML='THE SENTENCE WAS: "'+sentence+'"';
+  document.getElementById("moneywon").innerHTML="YOU HAVE WON: $"+earnings;
+  document.getElementById("guess").innerHTML="IT TOOK YOU "+guesscount+" TRIES";
 }
+}
+
+function newgame(){
+  document.getElementById("shadow").style.display="none";
+  document.getElementById("finishedgame").style.display="none";
+  createboard();
+  createabc();
 }
 
 

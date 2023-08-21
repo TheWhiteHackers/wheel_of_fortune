@@ -9,8 +9,13 @@
 </head>
 <body>
     <div id="shadow"></div>
+    
+    <div id="guesses">
+        <h3>Number Guesses: <span id="frontguess"> 26</span></h3>
+    </div>
+
     <center>
-    <h1>WHEEL OF FORTUNE</h1>
+    <h1 style="margin-top: -20px;">WHEEL OF FORTUNE</h1>
     <h3 style="color: blueviolet; margin-top: -15px;">HARDCORE <span style="
     color: black;">MODE</span> <span id="littlemark" style="color: black; font-size: 10px; cursor: 
     pointer;" onclick="explaincore()">?</span></h3>
@@ -89,14 +94,13 @@
     </div>
     </div>
 
-
-
     <div id="finishedgame">
         <h1>CONGRATS YOU DID IT!</h1>
-        <h2>YOU HAVE WON: $</h2>
-        <h2>THE SENTENCE WAS: ""</h2>
-        <BR></BR>
-        <button id="playagain">PLAY AGAIN</button>
+        <h2 id="moneywon"></h2>
+        <h2 id="senwas"></h2>
+        <h2 id="guess"></h2>
+       
+        <button id="playagain" onclick="newgame()">PLAY AGAIN</button>
     </div>
 
 
