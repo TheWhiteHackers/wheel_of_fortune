@@ -17,7 +17,7 @@ function start(){
   document.getElementById("popup2").style.display="none";
   document.getElementById("popup3").style.display="none";
   document.getElementById("finishedgame").style.display="none";
-
+  document.getElementById("iknowdiv").style.display="none";
 }
 
 function createboard(){
@@ -220,23 +220,31 @@ function explaincore(){
   document.getElementById("popup2").style.display="block";
   document.getElementById("shadow").style.display="block";
 }
+function openguesser(){
+  document.getElementById("iknowdiv").style.display="block";
+  document.getElementById("shadow").style.display="block";
+}
 function closebtn(){
-  document.getElementById("popup2").style.display="none";
   document.getElementById("shadow").style.display="none";
+  document.getElementById("popup2").style.display="none";
   document.getElementById("popup3").style.display="none";
+  document.getElementById("iknowdiv").style.display="none";
+}
+function guess(){
 
 }
+
 function checkletter(letter, div){
 
 let gamefinshed = true;
 let text;
-let guesscount = 0;
+let turncount = 0;
 
 let selected = document.getElementsByClassName("slottt-machine-recipe__items_container")[0].children[0].innerHTML;
 
 if (selected == 'BANKRUPT'){
   earnings=0;
-  guesscount = guesscount +1;
+  turncount = turncount +1;
   text="OH-NO you lost all your money!"
   let letdivs = document.getElementsByClassName("gamebox");
   for (let i = 0; i < letdivs.length; i++) {
@@ -247,7 +255,8 @@ if (selected == 'BANKRUPT'){
 
 } else {
 
-  guesscount = guesscount +1;
+  
+  turncount = turncount +1;
   let count =0;
   for (let i = 0; i < sentence.length; i++) {
      if (sentence[i]==letter){
@@ -299,7 +308,7 @@ if (gamefinshed){
   document.getElementById("finishedgame").style.display="block";
   document.getElementById("senwas").innerHTML='THE SENTENCE WAS: "'+sentence+'"';
   document.getElementById("moneywon").innerHTML="YOU HAVE WON: $"+earnings;
-  document.getElementById("guess").innerHTML="IT TOOK YOU "+guesscount+" TRIES";
+  document.getElementById("turnstook").innerHTML="IT TOOK YOU "+turncount+" TRIES";
 }
 }
 

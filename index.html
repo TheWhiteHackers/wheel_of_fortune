@@ -10,8 +10,8 @@
 <body>
     <div id="shadow"></div>
     
-    <div id="guesses">
-        <h3>Number Guesses: <span id="frontguess"> 26</span></h3>
+    <div id="turns">
+        <h3>Number of Turns: <span id="frontguess"> 0</span></h3>
     </div>
 
     <center>
@@ -50,8 +50,20 @@
           <br><br>
         <center>
             <button id="ws" onclick="wheel()">Spin the Wheel!</button>
+            <br>
+            <button id="iknow" onclick="openguesser()">Ready to Guess</button>
         </center>
     </div>
+
+    <div id="iknowdiv">
+        <h1>So You Know...</h1>
+        <h2>Type your guess and see if you are correct</h2>
+        <br>
+        <input type="text" id="text">
+        <button id="close" onclick="closebtn()">Close</button>
+        <button id="enter" onclick="guess()">Enter</button>
+    </div>
+
 
     <div id="letterscon">
         <center>
@@ -94,11 +106,12 @@
     </div>
     </div>
 
+
     <div id="finishedgame">
         <h1>CONGRATS YOU DID IT!</h1>
         <h2 id="moneywon"></h2>
         <h2 id="senwas"></h2>
-        <h2 id="guess"></h2>
+        <h2 id="turnstook"></h2>
        
         <button id="playagain" onclick="newgame()">PLAY AGAIN</button>
     </div>
