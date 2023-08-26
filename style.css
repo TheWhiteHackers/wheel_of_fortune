@@ -277,6 +277,9 @@ a {
     font-family: 'Geologica', sans-serif;
     margin-top: 15px;
 }
+#iknow:disabled{
+    color: rgb(163, 163, 163);
+}
 #iknowdiv{
     border: 15px solid #85affd;
     border-radius: 2px;
