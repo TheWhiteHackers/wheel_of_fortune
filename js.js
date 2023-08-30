@@ -19,6 +19,8 @@ function start() {
   document.getElementById("finishedgame").style.display = "none";
   document.getElementById("iknowdiv").style.display = "none";
   document.getElementById("iknow").disabled = true;
+  document.getElementById("incorrectguess").style.display = "none";
+
 }
 
 function createboard() {
@@ -238,6 +240,7 @@ function closebtn() {
   document.getElementById("popup2").style.display = "none";
   document.getElementById("popup3").style.display = "none";
   document.getElementById("iknowdiv").style.display = "none";
+  document.getElementById("incorrectguess").style.display = "none";
 }
 function guess() {
   let guessval = document.getElementById("text").value.toUpperCase();
@@ -266,7 +269,8 @@ function guess() {
     document.getElementById("shadow").style.display = "none";
     gamefinshed();
   } else {
-    console.log("wrong guess");
+    document.getElementById("incorrectguess").style.display = "block";
+    document.getElementById("shadow").style.display = "block";
   }
 }
 

@@ -319,3 +319,28 @@ a {
     font-family: 'Geologica', sans-serif;
     margin: 30px 0px 0px 5px;
 }
+#incorrectguess{
+    border: 15px solid #a60f0f;
+    border-radius: 2px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    left: 50%;
+    margin-left: -250px;
+    top: 50%;
+    margin-top: -175px;
+    z-index: 10001;
+    text-align: center;
+}
+#closeguess{
+    height: 50px;
+    width: 200px;
+    font-size: 17px;
+    border: none;
+    color: white;
+    background-image: linear-gradient(to right, #aa1616 0%, #e93636 51%, #aa1616 100%);
+    font-family: 'Geologica', sans-serif;
+    margin: 30px 5px 0px 0px;
+}
