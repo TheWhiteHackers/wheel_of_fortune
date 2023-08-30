@@ -9,6 +9,7 @@ let words;
 let sentence;
 let wordIndex;
 let earnings = 0;
+let turncount = 0;
 
 window.onload = start();
 function start() {
@@ -267,8 +268,10 @@ function guess() {
     earnings += moneyadd * wordval;
     document.getElementById("iknowdiv").style.display = "none";
     document.getElementById("shadow").style.display = "none";
+    turncount += 1;
     gamefinshed();
   } else {
+    turncount += 1;
     document.getElementById("incorrectguess").style.display = "block";
     document.getElementById("shadow").style.display = "block";
   }
@@ -277,7 +280,6 @@ function guess() {
 function checkletter(letter, div) {
   let gamefinshed = true;
   let text;
-  let turncount = 0;
 
   let selected = document.getElementsByClassName(
     "slottt-machine-recipe__items_container"
@@ -285,7 +287,7 @@ function checkletter(letter, div) {
 
   if (selected == "BANKRUPT") {
     earnings = 0;
-    turncount = turncount + 1;
+    turncount += 1;
     text = "OH-NO you lost all your money!";
     let letdivs = document.getElementsByClassName("gamebox");
     for (let i = 0; i < letdivs.length; i++) {
@@ -294,7 +296,7 @@ function checkletter(letter, div) {
       }
     }
   } else {
-    turncount = turncount + 1;
+    turncount += 1;
     let count = 0;
     for (let i = 0; i < sentence.length; i++) {
       if (sentence[i] == letter) {
@@ -342,7 +344,9 @@ function checkletter(letter, div) {
   }
 
   document.getElementById("bal").innerHTML = earnings;
+
   document.getElementById("note").innerHTML = text;
+  document.getElementById("frontguess").innerHTML=turncount;
   document.getElementById("popup3").style.display = "block";
   document.getElementById("ws").disabled = false;
   document.getElementById("iknow").disabled = true;
