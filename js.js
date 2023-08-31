@@ -274,6 +274,7 @@ function guess() {
     turncount += 1;
     document.getElementById("incorrectguess").style.display = "block";
     document.getElementById("shadow").style.display = "block";
+    document.getElementById("text").value="";
   }
 }
 
