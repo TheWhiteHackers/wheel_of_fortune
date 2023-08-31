@@ -1,130 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wheel of Fortune</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="shadow"></div>
-    
+
     <div id="turns">
-        <h3>Number of Turns: <span id="frontguess"> 0</span></h3>
+      <h3>Number of Turns: <span id="frontguess"> 0</span></h3>
     </div>
 
     <center>
-    <h1 style="margin-top: -20px;">WHEEL OF FORTUNE</h1>
-    <h3 style="color: blueviolet; margin-top: -15px;">HARDCORE <span style="
-    color: black;">MODE</span> <span id="littlemark" style="color: black; font-size: 10px; cursor: 
-    pointer;" onclick="explaincore()">?</span></h3>
+      <h1 style="margin-top: -20px">WHEEL OF FORTUNE</h1>
+      <h3 style="color: blueviolet; margin-top: -15px">
+        HARDCORE <span style="color: black">MODE</span>
+        <span
+          id="littlemark"
+          style="color: black; font-size: 10px; cursor: pointer"
+          onclick="explaincore()"
+          >?</span
+        >
+      </h3>
     </center>
 
-
     <div id="boardcon">
-        <center>
-            <div id="board"></div>
-        </center>
+      <center>
+        <div id="board"></div>
+      </center>
     </div>
-    
-    <div id="wheel">
-        <div id="yourbalance">
-            <center>
-                <h2>Your balance is: $<span id="bal">0</span></h2>
-            </center>
-        </div>
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
-        
+    <div id="wheel">
+      <div id="yourbalance">
         <center>
-       
+          <h2>Your balance is: $<span id="bal">0</span></h2>
+        </center>
+      </div>
+
+      <script
+        type="text/javascript"
+        src="https://code.jquery.com/jquery-2.1.1.js"
+      ></script>
+
+      <center>
         <div class="slottt-machine-recipe">
-            <div class="slottt-machine-recipe__mask" id="wordbox">
-                <div class="slottt-machine-recipe__items_container recipe_if">
-                </div>
-            </div>
+          <div class="slottt-machine-recipe__mask" id="wordbox">
+            <div class="slottt-machine-recipe__items_container recipe_if"></div>
           </div>
-       
-        </center>
-          <br><br>
-        <center>
-            <button id="ws" onclick="wheel()">Spin the Wheel!</button>
-            <br>
-            <button id="iknow" onclick="openguesser()">Ready to Guess</button>
-        </center>
+        </div>
+      </center>
+      <br /><br />
+      <center>
+        <button id="ws" onclick="wheel()">Spin the Wheel!</button>
+        <br />
+        <button id="iknow" onclick="openguesser()">Ready to Guess</button>
+      </center>
     </div>
 
     <div id="iknowdiv">
-        <h1>So You Know...</h1>
-        <h2>Type your guess and see if you are correct</h2>
-        <br>
-        <input type="text" id="text" autocomplete="off">
-        <button id="close" onclick="closebtn()">Close</button>
-        <button id="enter" onclick="guess()">Enter</button>
+      <h1>So You Know...</h1>
+      <h2>Type your guess and see if you are correct</h2>
+      <br />
+      <input type="text" id="text" autocomplete="off" />
+      <button id="close" onclick="closebtn()">Close</button>
+      <button id="enter" onclick="guess()">Enter</button>
     </div>
 
-
     <div id="letterscon">
-        <center>
-            <div id="letters"></div>
-        </center>
+      <center>
+        <div id="letters"></div>
+      </center>
     </div>
 
     <!-- pop-up -->
     <!-- sort of like a splash screen -->
-  
-    <div id="popup">
-        <h4>Hello and welcome to the.....</h4>
-        <h2>WHEEL OF FORTUNE!!</h2>
 
-        <p>Spin the wheel and guess the sentance</p>
-        <p>Try to make the most money</p>
-        <p>Are you ready?</p>
-        <!-- explain game -->
-        <button id="begingame" onclick="startgame()">Start Game!</button>
+    <div id="popup">
+      <h4>Hello and welcome to the.....</h4>
+      <h2>WHEEL OF FORTUNE!!</h2>
+
+      <p>Spin the wheel and guess the sentance</p>
+      <p>Try to make the most money</p>
+      <p>Are you ready?</p>
+      <!-- explain game -->
+      <button id="begingame" onclick="startgame()">Start Game!</button>
     </div>
-    
+
     <div id="popup2">
-        <h2 style="font-size: 45px;">WHY <span style="color: blueviolet;">HARDCORE</span></h2>
-        <p>This is called hardcore because</p>
-        <p>there are no catagories so you'll</p>
-        <p>have to purely use your genaral</p>
-        <p>knowledge to win!</p>
-        <button onclick="closebtn()" id="gotitbtn">Got It</button>
+      <h2 style="font-size: 45px">
+        WHY <span style="color: blueviolet">HARDCORE</span>
+      </h2>
+      <p>This is called hardcore because</p>
+      <p>there are no catagories so you'll</p>
+      <p>have to purely use your genaral</p>
+      <p>knowledge to win!</p>
+      <button onclick="closebtn()" id="gotitbtn">Got It</button>
     </div>
 
     <div id="popup3">
+      <div class="words" id="note" style="margin-top: 20px">
+        "T" was found 3 times <br />
+        $700 x 3
+      </div>
 
-    <div class="words" id="note" style="margin-top: 20px;">"T" was found 3 times <br> $700 x 3</div>
+      <div style="height: 39px; top: 0">
+        <img
+          src="cross.png"
+          alt="close"
+          onclick="closebtn()"
+          height="20px"
+          width="20px"
+          style="top: 4px; right: 3px; position: absolute"
+        />
+      </div>
 
-    <div style="height: 39px; top: 0;">
-    <img src="cross.png" alt="close" onclick="closebtn()" height="20px" width="20px" style="top: 4px; right: 3px;position: absolute;">
+      <div style="height: 39px; bottom: 0"></div>
     </div>
-
-    <div style="height: 39px; bottom: 0;">
-    </div>
-    </div>
-
 
     <div id="finishedgame">
-        <h1>CONGRATS YOU DID IT!</h1>
-        <h2 id="moneywon"></h2>
-        <h2 id="senwas"></h2>
-        <h2 id="turnstook"></h2>
-       
-        <button id="playagain" onclick="newgame()">PLAY AGAIN</button>
+      <h1>CONGRATS YOU DID IT!</h1>
+      <h2 id="moneywon"></h2>
+      <h2 id="senwas"></h2>
+      <h2 id="turnstook"></h2>
+
+      <button id="playagain" onclick="newgame()">PLAY AGAIN</button>
     </div>
 
     <div id="incorrectguess">
-        <h1>OH NO!</h1>
-        <h2>THAT WAS A WRONG GUESS</h2>
-        <h2>Number of Turns +1</h2>
-        <button id="closeguess" onclick="closebtn()">Close</button>
+      <h1>OH NO!</h1>
+      <h2>THAT WAS A WRONG GUESS</h2>
+      <h2>Number of Turns +1</h2>
+      <button id="closeguess" onclick="closebtn()">Close</button>
     </div>
 
-    
     <script src="js.js"></script>
-
-</body>
+  </body>
 </html>

@@ -13,15 +13,16 @@ let turncount = 0;
 
 window.onload = start();
 function start() {
+  wordpos = [];
   createboard();
   createabc();
   document.getElementById("popup2").style.display = "none";
+  document.getElementById("letterscon").style.display = "none";
   document.getElementById("popup3").style.display = "none";
   document.getElementById("finishedgame").style.display = "none";
   document.getElementById("iknowdiv").style.display = "none";
   document.getElementById("iknow").disabled = true;
   document.getElementById("incorrectguess").style.display = "none";
-
 }
 
 function createboard() {
@@ -149,15 +150,12 @@ function randomSlotttIndex(max) {
 
 function animate() {
   wordIndex = randomSlotttIndex(wordlist.length);
-  console.log(wordIndex);
-
   $wordbox.animate({ top: -wordIndex * 150 }, 500, "swing", function () {
     rotateContents($wordbox, wordIndex);
   });
 }
 
 function wheel() {
-  console.log("hi!");
   $wordbox = $("#wordbox .slottt-machine-recipe__items_container");
   buildSlotContents($wordbox, wordlist);
   // buildSlotContents($wordbox, wordlist);
@@ -174,7 +172,6 @@ function checkbankrupt() {
     "slottt-machine-recipe__items_container"
   )[0].children[0].innerHTML;
 
-  console.log(selected);
   if (selected == "BANKRUPT") {
     document.getElementById("ws").disabled = false;
     document.getElementById("iknow").disabled = true;
@@ -208,15 +205,12 @@ function preparesen() {
     if (pos - 1 + words[i].length < 13) {
       wordpos.push(pos + (line - 1) * 14);
       pos += words[i].length + 1;
-      console.log(pos);
     } else {
       line++;
       pos = 3;
       i--;
     }
   }
-  console.log(words);
-  console.log(wordpos);
 }
 
 function drawsen() {
@@ -245,7 +239,6 @@ function closebtn() {
 }
 function guess() {
   let guessval = document.getElementById("text").value.toUpperCase();
-  console.log(guessval);
   let selected = document.getElementsByClassName(
     "slottt-machine-recipe__items_container"
   )[0].children[0].innerHTML;
@@ -264,17 +257,17 @@ function guess() {
         wordval = wordlistvalues[i][1];
       }
     }
-    console.log(moneyadd, wordval);
     earnings += moneyadd * wordval;
     document.getElementById("iknowdiv").style.display = "none";
     document.getElementById("shadow").style.display = "none";
+    document.getElementById("text").value = "";
     turncount += 1;
     gamefinshed();
   } else {
     turncount += 1;
     document.getElementById("incorrectguess").style.display = "block";
     document.getElementById("shadow").style.display = "block";
-    document.getElementById("text").value="";
+    document.getElementById("text").value = "";
   }
 }
 
@@ -347,33 +340,34 @@ function checkletter(letter, div) {
   document.getElementById("bal").innerHTML = earnings;
 
   document.getElementById("note").innerHTML = text;
-  document.getElementById("frontguess").innerHTML=turncount;
+  document.getElementById("frontguess").innerHTML = turncount;
   document.getElementById("popup3").style.display = "block";
   document.getElementById("ws").disabled = false;
   document.getElementById("iknow").disabled = true;
   document.getElementById("letterscon").style.display = "none";
 
   if (gamefinshed) {
-   gamefinshed();
+    gamefinshed();
   }
 }
 
-function newgame() {
-  document.getElementById("shadow").style.display = "none";
-  document.getElementById("finishedgame").style.display = "none";
-  createboard();
-  createabc();
-}
-
 function gamefinshed() {
-  console.log("game finshed");
   document.getElementById("shadow").style.display = "block";
   document.getElementById("popup3").style.display = "none";
   document.getElementById("finishedgame").style.display = "block";
   document.getElementById("senwas").innerHTML =
     'THE SENTENCE WAS: "' + sentence + '"';
-  document.getElementById("moneywon").innerHTML =
-    "YOU HAVE WON: $" + earnings;
+  document.getElementById("moneywon").innerHTML = "YOU HAVE WON: $" + earnings;
   document.getElementById("turnstook").innerHTML =
     "IT TOOK YOU " + turncount + " TRIES";
+}
+
+function newgame() {
+  start();
+  document.getElementById("shadow").style.display = "none";
+  document.getElementById("ws").disabled = false;
+  document.getElementsByClassName(
+    "slottt-machine-recipe__items_container"
+  )[0].innerHTML = "";
+  startgame();
 }
